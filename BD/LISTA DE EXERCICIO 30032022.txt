@@ -1,0 +1,154 @@
+Exercicío 01
+A querry não irá ser executa pois, está faltando o indicador HR 
+referente ao banco de dados onde a tabela employees está localizada.
+________________________________________________________________________________
+Exercicío 02
+Sim.
+Primeiro - está faltando a vírgula após o last_name.
+
+Segundo - a operação sal x 12, não existe campo sal o tornado impossivel de ser
+multiplicado por 12.
+
+Terceiro - X não é um operador aritmético, o seu representante correto deveria
+ser *.
+
+Quarto - O alias ANUAL SALARY não irá funcionar, pois, está sem o identificador
+AS ou está forá de aspas duplas, como no caso citado.
+
+O HR e o ponto e vírgula não foram considerados no exercicío acima.
+________________________________________________________________________________
+Exercicío 03
+select 
+    'O presidente possui o job_title ' || job_title ||
+    ' e o salario maximo é ' || max_salary
+from hr.jobs
+where max_salary = 40000;
+________________________________________________________________________________
+Exercicío 04
+select Count(*) from hr.departments
+where manager_id = 200;
+
+/*manager_id =1 ocorrências
+location_id = 21 ocorrências/*
+
+select * from hr.departments
+where manager_id = 200 or location_id = 1700;
+________________________________________________________________________________
+Exercicío 05
+select job_id
+from hr.employees
+where salary > 10000;
+________________________________________________________________________________
+Exercicío 06
+select employee_id "EMP#", manager_id "MAN#", 
+	department_id "DEP#", first_name "FIR#", 
+	last_name "LAS#", email "EMA#", 
+	phone_number "PHO#", hire_date "HIR#", 
+	job_id "JOB#", salary "SAL#", commission_pct "COM#"
+from hr.employees;
+________________________________________________________________________________
+Exercicío 07
+select 
+	last_name ||', ' ||job_id
+	as "employee and title"
+from hr.employees;
+________________________________________________________________________________
+Exercicío 08
+select last_name, salary
+from hr.employees
+where salary >12000;
+________________________________________________________________________________
+Exercicío 09
+select last_name, department_id, employee_id
+from hr.employees
+where employee_id = 100;
+
+select last_name, department_id
+from hr.employees
+where employee_id = 100;
+________________________________________________________________________________
+Exercicío 10
+select last_name, salary
+from hr.employees
+where salary <5000 or salary >12000;
+________________________________________________________________________________
+Exercicío 11
+select last_name, job_id, hire_date
+from hr.employees
+where last_name = 'Matos' or last_name = 'Taylor'
+order by hire_date asc;
+________________________________________________________________________________
+Exercicío 12
+select last_name, department_id
+from hr.employees
+where department_id = 20 or department_id = 50
+order by last_name asc;
+________________________________________________________________________________
+Exercicío 13
+select last_name, salary, commission_pct
+from hr.employees
+where commission_pct is not null
+order by salary, commission_pct desc;
+________________________________________________________________________________
+Exercicío 14
+select last_name
+from hr.employees
+where last_name like '%a%' or last_name like '%e%';
+________________________________________________________________________________
+Exercicío 15
+select last_name, job_id, salary
+from hr.employees
+where job_id = 'SA_REP'and (salary <>  2500 and salary <>  3500 and salary <>  7000) or 
+job_id = 'ST_CLERK' and (salary <>  2500 and salary <>  3500 and salary <>  7000);
+________________________________________________________________________________
+Exercicío 16
+select first_name, last_name, commission_pct
+from hr.employees
+where commission_pct = '.2';
+________________________________________________________________________________
+Exercicío 17
+select department_id, trunc(avg(salary))
+from hr.employees
+where department_id = 60 or department_id = 100 or department_id = 20
+group by department_id
+order by department_id;
+________________________________________________________________________________
+Exercicío 18
+create table funcionarios (
+codigo number (8) primary key,
+nome varchar(30) not null,
+salario number(8),
+celular char (11)
+); 
+
+insert into funcionarios (codigo, nome, salario, celular)
+values (1, 'Amanda', 2600, '11987465471');
+insert into funcionarios (codigo, nome, salario, celular)
+values (2, 'Alonso', 1800, '11987521458');
+insert into funcionarios (codigo, nome, salario, celular)
+values (3, 'Alisson', 3500, '11961465845');
+insert into funcionarios (codigo, nome, salario, celular)
+values (4, 'Aurelio', 2900, '11985214751');
+insert into funcionarios (codigo, nome, salario, celular)
+values (5, 'Bruno', 3200, '11963258741');
+insert into funcionarios (codigo, nome, salario, celular)
+values (6, 'Bernardo', 3500, '11987456321');
+insert into funcionarios (codigo, nome, salario, celular)
+values (7, 'Carlos', 2600, '11963258258');
+insert into funcionarios (codigo, nome, salario, celular)
+values (8, 'Paulo', 1450, '11963698523');
+insert into funcionarios (codigo, nome, salario, celular)
+values (9, 'Joice', 8000, '11965478485');
+insert into funcionarios (codigo, nome, salario, celular)
+values (10, 'Jeremias', 7500, '11963254124');
+
+insert into funcionarios values (11, 'Jonatan', 5000, '11925478451');
+insert into funcionarios values (12, 'Gabriel', 2600, '11954784851');
+insert into funcionarios values (13, 'Giane', 3000, '11996365854');
+insert into funcionarios values (14, 'Ronaldo', 1800, '11909658720');
+insert into funcionarios values (15, 'Marta', 3200, '11903214578');
+insert into funcionarios values (16, 'Wesley', 5600, '11905487874');
+insert into funcionarios values (17, 'Everton', 8900, '11903245781');
+insert into funcionarios values (18, 'Marcio', 6200, '11996354808');
+insert into funcionarios values (19, 'Valmir', 7500, '11932054870');
+insert into funcionarios values (20, 'Tereza', 11000, '11913468045');
